@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: fact_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        data_tests:
+          - not_null
+
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Pending', 'Cancelled', 'Delivered', 'Shipped']
+
+      - name: unit_price
+        data_tests:
+          - not_null
